@@ -1,0 +1,564 @@
+:root {
+    --bg: #FAF5EF;
+    /* soft beige page bg */
+    --card: #ffffff;
+    --accent: #FF6B6B;
+    /* coral */
+    --warm: #FFB347;
+    /* warm orange */
+    --muted: #6B7280;
+    /* placeholder / soft text */
+    --green: #88c9a6;
+    /* soft green accent */
+    --input-bg: #f9fbf8;
+    /* input background */
+    --shadow: 0 12px 30px rgba(18, 18, 18, 0.06);
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(180deg, var(--bg) 0%, #fffcf7 100%);
+    color: #2b2b2b
+}
+
+a {
+    cursor: pointer
+}
+
+/* error class for error messages */
+.error {
+    border: 2px solid red !important;
+}
+
+.error-message {
+    padding-left: 10px;
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Outer container */
+.container {
+    width: 900px;
+    max-width: calc(100% - 32px);
+    margin: 15px auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: flex;
+    background: var(--card);
+    min-height: 650px;
+}
+
+/* Left branding area */
+.brand-side {
+    width: 40%;
+    min-width: 300px;
+    padding: 42px 36px;
+    background: linear-gradient(135deg, #fff7f0 0%, #fffaf6 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 18px;
+    position: relative;
+}
+
+.brand-side .logo {
+    font-family: 'Playfair Display', serif;
+    color: #24352d;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+.yoga-icon {
+    font-size: 56px;
+    background: linear-gradient(90deg, #ffd94d, #ff9c73);
+    padding: 8px;
+    border-radius: 18px;
+    display: inline-block;
+    color: #fff;
+    box-shadow: 0 8px 18px rgba(255, 150, 70, 0.12)
+}
+
+.brand-text {
+    color: #4a5b50;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-top: 6px
+}
+
+.trial-info {
+    margin-top: 10px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9));
+    padding: 14px;
+    border-radius: 12px;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.trial-info h3 {
+    margin: 0;
+    color: #374a40;
+    font-size: 16px;
+    font-weight: 600
+}
+
+.trial-info p {
+    margin: 6px 0 10px;
+    color: #5c6e62;
+    font-size: 14px
+}
+
+.features {
+    display: flex;
+    gap: 8px
+}
+
+.feature {
+    flex: 1;
+    text-align: center;
+    padding: 8px 6px;
+    border-radius: 999px;
+    background: rgba(168, 213, 186, 0.22);
+    color: #2a5948;
+    font-size: 13px
+}
+
+/* Right forms area */
+.forms-side {
+    width: 60%;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.forms-container {
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+    min-height: 570px
+}
+
+/* Forms stacking & transitions */
+.form {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: -20px;
+    transition: all .45s cubic-bezier(.2, .9, .3, 1);
+}
+
+.login-container {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    pointer-events: all
+}
+
+.register-container {
+    opacity: 0;
+    transform: translateX(24px) scale(.98);
+    pointer-events: none
+}
+
+.container.register-active .login-container {
+    opacity: 0;
+    transform: translateX(-24px) scale(.98);
+    pointer-events: none
+}
+
+.container.register-active .register-container {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    pointer-events: all
+}
+
+h2.form-title {
+    font-family: 'Playfair Display', serif;
+    color: #24352d;
+    font-size: 28px;
+    margin: 0 0 8px
+}
+
+p.subheading {
+    color: #6a8e7e;
+    margin: 0 0 22px;
+    font-size: 15px
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 14px
+}
+
+.input-group i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(42, 89, 72, 0.24);
+    font-size: 16px;
+    z-index: 2;
+}
+.box {
+    position: relative;
+}
+.input-group input {
+    width: 100%;
+    padding: 9px 16px 9px 46px;
+    border-radius: 50px;
+    border: 1px solid #e6efe7;
+    background: var(--input-bg);
+    font-size: 15px;
+    color: #26322a;
+    transition: all .22s;
+    outline: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.input-group input::placeholder {
+    color: #97a595;
+    opacity: 1
+}
+
+.input-group input:focus {
+    border-color: #FFD69B;
+    box-shadow: 0 6px 20px rgba(255, 166, 80, 0.08);
+    background: #fff;
+    color:#1a211dd9;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #a8c9b6;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 2;
+}
+
+.forgot-link {
+    text-align: right;
+    margin: -6px 0 12px
+}
+
+.forgot-link a {
+    color: #6a8e7e;
+    text-decoration: none;
+    font-size: 14px
+}
+
+.forgot-link a:hover {
+    color: #76b897;
+    text-decoration: underline
+}
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 14px;
+    border-radius: 999px;
+    border: none;
+    background: linear-gradient(90deg, var(--warm), var(--accent));
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(255, 160, 80, 0.12);
+    transition: all .2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 38px rgba(255, 160, 80, 0.18)
+}
+
+.form-footer {
+    margin-top: 18px;
+    text-align: center;
+    color: #6a8e7e;
+    font-size: 14px
+}
+
+.form-footer a {
+    color: #76b897;
+    text-decoration: none;
+    font-weight: 600
+}
+
+.form-footer a:hover {
+    text-decoration: underline
+}
+
+/* Special styling for terms checkbox error */
+.terms {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #6a8e7e;
+    margin-bottom: 8px;
+    font-size: 14px;
+    position: relative;
+    padding-bottom: 14px;
+}
+
+.terms .error-message {
+    /* position: absolute; */
+    top: 100%;
+    left: 0;
+    font-size: 0.75rem;
+    color: #ff4757;
+    margin: 0;
+    padding: 2px 0;
+}
+
+.terms input {
+    accent-color: #76b897
+}
+
+/* forgot modal */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(12, 12, 12, 0.35);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 40
+}
+
+.modal {
+    width: 380px;
+    max-width: calc(100% - 40px);
+    background: var(--card);
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: var(--shadow)
+}
+
+.modal input {
+    margin: 0 0 8px;
+    color: #24352d;
+    font-family: 'Playfair Display', serif
+}
+
+.modal p {
+    margin: 0 0 12px;
+    color: #596a60
+}
+
+/* small leaf decoration */
+.leaf {
+    position: absolute;
+    font-size: 22px;
+    color: rgba(136, 201, 166, 0.14);
+    z-index: 0
+}
+
+.leaf-1 {
+    left: 8px;
+    top: 10px
+}
+
+.leaf-2 {
+    right: 8px;
+    bottom: 10px
+}
+
+.popup-overlay {
+    display: none; 
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    }
+
+    /* Popup Box */
+.popup-box {
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 350px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.popup-box h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #28a745;
+}
+
+.popup-box p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.popup-box button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    background: #28a745;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+
+.popup-box button:hover {
+    background: #218838;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+/* responsive */
+@media (max-width:900px) {
+    .container {
+        flex-direction: column;
+        width: 100%;
+        border-radius: 16px
+    }
+
+    .brand-side,
+    .forms-side {
+        width: 100%;
+        padding: 26px
+    }
+
+    .brand-side {
+        order: 1;
+        text-align: center;
+        align-items: center
+    }
+
+    .forms-side {
+        order: 2;
+        padding: 24px
+    }
+
+    .forms-container {
+        min-height: auto;
+        position: relative
+    }
+
+    .form {
+        position: relative
+    }
+}
+
+/* ===================================================================
+   YOGAMART — VIBRANT COLORFUL THEME (Login / Registration)
+   Applied: 2026-09-02
+=================================================================== */
+
+/* Page background */
+html, body {
+  background: linear-gradient(145deg, #fff7ed 0%, #fdf2f8 50%, #eff6ff 100%) !important;
+}
+
+/* Left brand panel — vibrant coral→orange gradient */
+.brand-side {
+  background: linear-gradient(145deg, #ff6b6b 0%, #fb923c 50%, #fbbf24 100%) !important;
+  color: #fff !important;
+}
+.brand-side .logo { color: #fff !important; text-shadow: 0 2px 8px rgba(0,0,0,0.15) !important; }
+.brand-text { color: rgba(255,255,255,0.9) !important; }
+
+/* Yoga icon slab */
+.yoga-icon {
+  background: rgba(255,255,255,0.25) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 2px solid rgba(255,255,255,0.4) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15) !important;
+}
+
+/* Trial info box on brand side */
+.trial-info {
+  background: rgba(255,255,255,0.22) !important;
+  border: 1px solid rgba(255,255,255,0.35) !important;
+  backdrop-filter: blur(8px) !important;
+}
+.trial-info h3 { color: #fff !important; }
+.trial-info p  { color: rgba(255,255,255,0.85) !important; }
+
+/* Feature pills */
+.feature {
+  background: rgba(255,255,255,0.3) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  border: 1px solid rgba(255,255,255,0.4) !important;
+}
+
+/* Right form panel */
+.forms-side { background: #fff !important; }
+
+/* Form titles */
+h2.form-title {
+  background: linear-gradient(135deg, #ff6b6b, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800 !important;
+}
+
+/* Inputs */
+.input-group input {
+  background: #fafafa !important;
+  border: 2px solid #e5e7eb !important;
+  color: #1a202c !important;
+}
+.input-group input:focus {
+  border-color: #ff6b6b !important;
+  box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.14) !important;
+  background: #fff !important;
+}
+.input-group i { color: rgba(255, 107, 107, 0.5) !important; }
+
+/* Submit button */
+.btn {
+  background: linear-gradient(135deg, #ff6b6b, #fb923c) !important;
+  color: #fff !important;
+  box-shadow: 0 8px 24px rgba(255, 107, 107, 0.35) !important;
+  font-weight: 700 !important;
+}
+.btn:hover {
+  background: linear-gradient(135deg, #fb923c, #ff6b6b) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 14px 32px rgba(255, 107, 107, 0.45) !important;
+}
+
+/* Links */
+.forgot-link a, .form-footer a { color: #ff6b6b !important; }
+.forgot-link a:hover, .form-footer a:hover { color: #fb923c !important; }
+
+/* Outer card shadow */
+.container {
+  box-shadow: 0 20px 60px rgba(255, 107, 107, 0.15) !important;
+  border: 1px solid rgba(255, 107, 107, 0.1) !important;
+}
+
+/* Password toggle icon */
+.password-toggle { color: rgba(255, 107, 107, 0.5) !important; }
+.password-toggle:hover { color: #ff6b6b !important; }

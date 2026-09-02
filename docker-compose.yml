@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  # PHP Apache Web Server
+  app:
+    build: .
+    container_name: yogamart_app
+    ports:
+      - "8081:80"
+    volumes:
+      - ./content:/var/www/html/content
+      - ./sessions:/var/www/html/sessions
+      - ./uploads:/var/www/html/uploads
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_DATABASE=yogamart_db
+      - DB_USERNAME=root
+      - DB_PASSWORD=root_password
+      - SECRET_KEY=8f2a1b3c4d5e6f7a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2
+      - APP_DEBUG=true
+      - SMTP_HOST=smtp.gmail.com
+      - SMTP_PORT=587
+      - SMTP_SECURE=tls
+      - SMTP_USERNAME=sunriseyoga007@gmail.com
+      - SMTP_PASSWORD=qyarmcgmazqycjbz
+      - SMTP_FROM_EMAIL=sunriseyoga007@gmail.com
+      - SMTP_FROM_NAME=YogaMart
+    networks:
+      - yogamart_network
+
+  # MySQL Database
+  db:
+    build: ./db-image
+    container_name: yogamart_db
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_password
+      - MYSQL_DATABASE=yogamart_db
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - yogamart_network
+
+networks:
+  yogamart_network:
+    driver: bridge
+
+volumes:
+  mysql_data:

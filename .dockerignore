@@ -1,0 +1,34 @@
+# Source Control
+.git/
+.gitignore
+
+# Composer (handled by multi-stage build)
+vendor/
+
+# Application Data (handled by volumes)
+sessions/
+uploads/
+
+# Logs
+php_errors.log
+error.log
+includes/error.log
+*error.log
+**/error.log
+
+# Environment
+.env
+
+# Folders to exclude from the image
+db-image/
+jay/
+
+# Documentation and meta files
+DOCKER_INSTRUCTIONS.md
+DOCUMENTATION.md
+README.md
+manual.md
+LICENSE
+
+# Note: composer.json, composer.lock, and php.ini must NOT be ignored 
+# because the Dockerfile needs to COPY them during the build.

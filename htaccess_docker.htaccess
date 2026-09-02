@@ -1,0 +1,6 @@
+# Apache Configuration for Docker
+# (We removed the XAMPP-specific php.ini path)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Add any rewrite rules here if needed
+</IfModule>

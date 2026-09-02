@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  # The PHP Application (Pulls from your Docker Hub)
+  app:
+    image: vishalvarm/php-app:v1
+    container_name: yogamart_app_prod
+    restart: always
+    ports:
+      - "8081:80"
+    # This loads all your SMTP, Secret Keys, and DB settings from the .env file
+    env_file: .env
+    depends_on:
+      - db
+    networks:
+      - yogamart_network
+
+  # The MySQL Database (Pulls from your Docker Hub)
+  db:
+    image: vishalvarm/php-db:v1
+    container_name: yogamart_db_prod
+    restart: always
+    # This ensures the DB uses the same .env file as the app
+    env_file: .env
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data_prod:/var/lib/mysql
+    networks:
+      - yogamart_network
+
+networks:
+  yogamart_network:
+    driver: bridge
+
+volumes:
+  mysql_data_prod:
