@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # YogaMart Website
 
 This project is a PHP-based website for a yoga studio, featuring user registration with OTP verification, course listings, and an admin panel.
@@ -53,3 +54,6 @@ Before you begin, ensure you have the following software installed on your syste
 3.  The login and registration page should now be visible.
 
 By following these steps, anyone can set up and run the project on their local machine without encountering version or missing software errors.
+=======
+# YogaMart-E-Learning-E-Commerce-PHP-project
+>>>>>>> 27a1a1deec610b84359b728d74d62771c6d3014b
