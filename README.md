@@ -1,59 +1,77 @@
-<<<<<<< HEAD
-# YogaMart Website
+# YogaMart — E-Learning & E-Commerce Platform
 
-This project is a PHP-based website for a yoga studio, featuring user registration with OTP verification, course listings, and an admin panel.
+A full-stack PHP web application combining yoga class booking, online course sales, and product e-commerce into a single platform.
 
-## Prerequisites
+## 🌟 Overview
 
-Before you begin, ensure you have the following software installed on your system:
+YogaMart is a multi-purpose platform for a yoga-focused business, allowing users to:
+- Book yoga classes/sessions
+- Purchase and access online yoga courses (e-learning)
+- Browse and buy yoga-related products (e-commerce)
 
-*   **XAMPP:** A web server solution that includes Apache, MySQL, and PHP.
-    *   [Download XAMPP](https://www.apachefriends.org/index.html)
-*   **Composer:** A dependency manager for PHP.
-    *   [Download Composer](https://getcomposer.org/download/)
+Built with PHP and MySQL, it demonstrates a complete server-side web application with user-facing storefront features and backend data handling.
 
-## Setup Instructions
+## 🚀 Live Demo
 
-1.  **Get the Code:**
-    *   Clone this repository or download the source code as a ZIP file.
+🔗 [Add your deployed link here] *(consider hosting on InfinityFree, 000webhost, or a small VPS for a PHP live demo)*
 
-2.  **Place the Project:**
-    *   Move the project folder into the `htdocs` directory of your XAMPP installation (e.g., `C:\xampp\htdocs\YogaMart`).
+## 🛠️ Tech Stack
 
-    Navigate to the project directory (e.g., `cd C:\xampp\htdocs\YogaMart`).
-    *   Run the following command to install the required PHP libraries:
-        ```bash
-        composer install
-        ```
+**Backend:** PHP
+**Database:** MySQL
+**Frontend:** HTML5, CSS3, JavaScript
+**Tools:** Git
 
-4.  **Set Up the Database:**
-    *   Start the **Apache** and **MySQL** modules from the XAMPP Control Panel.
-    *   Open your web browser and go to `http://localhost/phpmyadmin/`.
-    *   Click on the **New** button on the left sidebar to create a new database.
-    *   Enter yogamart_db as the database name and click **Create**.
-    *   Click on the newly created yogamart_db database in the left sidebar.
-    *   Click on the **Import** tab at the top.
-    *   Click **Choose File** and select the `yogamart_db.sql` file from the project directory.
-    *   Click the **Go** button at the bottom of the page to import the database structure.
+## ✨ Features
 
-5.  **Configure the Environment:**
-    *   In the project directory, find the file named `.env.example`.
-    *   Make a copy of this file and rename it to `.env`.
-    *   Open the `.env` file in a text editor and fill in the required credentials:
-        *   `SECRET_KEY`: Generate a random secret key for hashing.
-        *   `DB_PASSWORD`: Enter your MySQL database password (if you have one; it's blank by default in XAMPP).
-        *   Fill in the `SMTP_*` settings with your email provider's details to enable OTP emails.
+- **Class Booking** — users can browse and book available yoga classes
+- **Course Sales** — purchase and access online yoga courses
+- **E-Commerce Store** — browse products, add to cart, and checkout
+- **User Accounts** — registration and login
+- **Admin Panel** — [add if applicable: manage classes/courses/products/orders]
 
-6.  **Media Files:**
-    *   The `content` directory contains all the video and thumbnail files for the courses. This directory is included with the project so that the application will have sample data to display upon setup.
+*(Add/remove features to match what's actually implemented)*
 
-## Running the Application
+## 📸 Screenshots
 
-1.  Ensure that **Apache** and **MySQL** are running from the XAMPP Control Panel.
-2.  Open your web browser and navigate to `http://localhost/YogaMart/` (or whatever you named the project folder).
-3.  The login and registration page should now be visible.
+*(Add screenshots or a short GIF walkthrough of the storefront, booking flow, and checkout here)*
 
-By following these steps, anyone can set up and run the project on their local machine without encountering version or missing software errors.
-=======
-# YogaMart-E-Learning-E-Commerce-PHP-project
->>>>>>> 27a1a1deec610b84359b728d74d62771c6d3014b
+## ⚙️ Getting Started
+
+### Prerequisites
+- PHP (with a local server like XAMPP/WAMP/MAMP)
+- MySQL
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/VALANKARDARSHIT/YogaMart-E-Learning-E-Commerce-PHP-project.git
+cd YogaMart-E-Learning-E-Commerce-PHP-project
+```
+
+1. Import the provided `.sql` file into your MySQL database
+2. Update database credentials in the config file (e.g. `config.php`)
+3. Place the project folder inside your local server's root directory (e.g. `htdocs` for XAMPP)
+4. Start Apache and MySQL from your local server control panel
+5. Visit `http://localhost/YogaMart-E-Learning-E-Commerce-PHP-project` in your browser
+
+*(Adjust these steps to match your actual setup)*
+
+## 📁 Project Structure
+
+```
+YogaMart-E-Learning-E-Commerce-PHP-project/
+├── admin/           # Admin panel
+├── includes/        # Shared PHP includes
+├── assets/          # CSS, JS, images
+├── database/        # SQL schema
+└── README.md
+```
+
+*(Adjust this to match your actual folder structure)*
+
+## 👤 Author
+
+**Darshit Valankar**
+GitHub: [@VALANKARDARSHIT](https://github.com/VALANKARDARSHIT)
